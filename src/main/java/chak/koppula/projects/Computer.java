@@ -1,6 +1,7 @@
 package chak.koppula.projects;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Computer extends Player {
 
@@ -31,10 +32,22 @@ public class Computer extends Player {
 
     //checks to see if computer should call
     public boolean shouldCompCall(LeastCount lc) {
+        Random random = new Random();
+        int num;
         if(score(lc) < 20) {
+            num = random.nextInt(11);
+            return num % 5 == 0;
+        } else if (score(lc) < 16) {
+            num = random.nextInt(10);
+            return num % 3 == 0;
+        } else if (score(lc) < 12) {
+            num = random.nextInt(11);
+            return num % 2 == 0;
+        } else if (score(lc) < 10) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     /*
