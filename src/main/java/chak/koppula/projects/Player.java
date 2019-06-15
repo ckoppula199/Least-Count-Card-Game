@@ -33,13 +33,14 @@ public abstract class Player {
 
     //finds cards in hand that match the argument card
     public ArrayList<Card> findMatchingCards(Card top) {
-        ArrayList<Card> cards = new ArrayList<>();
-        cards = addMatchingCards(cards, top);
+        ArrayList<Card> cards;
+        cards = addMatchingCards(top);
         return cards;
     }
 
-    //adds cards to an array if the ranks of the card and paramater card match
-    private ArrayList<Card> addMatchingCards(ArrayList<Card> cards, Card top) {
+    //adds cards to an array if the ranks of the card and parameter card match
+    private ArrayList<Card> addMatchingCards(Card top) {
+        ArrayList<Card> cards = new ArrayList<>();
         for(int index = 0; index < hand.size(); index++) {
             Card card = hand.getCard(index);
             if(cardMatches(card, top)) {
@@ -59,7 +60,7 @@ public abstract class Player {
     }
 
     //helper function for call
-    private void callDataDisplay(Player user, Player computer, LeastCount lc) {
+    private void callDataDisplay(Player user, Player computer) {
         System.out.println("Your hand");
         System.out.println();
         user.display();
@@ -72,7 +73,7 @@ public abstract class Player {
 
     //ends the game when a player calls and displays hands, scores and results
     public void call(LeastCount lc, Player computer, Player user) { //computer needs to be opposite of caller
-        callDataDisplay(user, computer, lc);
+        callDataDisplay(user, computer);
         if(user.score(lc) >= computer.score(lc)) {
             System.out.println(computer.getName() + " wins the round");
             if(this == user) {
@@ -168,10 +169,5 @@ public abstract class Player {
     //displays hand
     public void display() {
         hand.display();
-    }
-
-    //displays score
-    public String displayScore(LeastCount lc) {
-        return (name + " has a score of " + score(lc));
     }
 }

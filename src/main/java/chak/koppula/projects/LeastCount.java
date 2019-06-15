@@ -70,7 +70,7 @@ public class LeastCount {
         System.out.println("The top card is the " + discardPile.last());
         System.out.println();
         player.display();
-        System.out.println();;
+        System.out.println();
         System.out.println("Score: " + player.score(this));
         System.out.println("Draw Pile: " + drawPile.size());
         System.out.println();
@@ -150,8 +150,7 @@ public class LeastCount {
     private int collectScore() {
         try {
             System.out.println("To what score do you want to play to?");
-            int score = in.nextInt();
-            return score;
+            return in.nextInt();
         } catch (InputMismatchException | NumberFormatException error) {
             in.nextLine();
             return collectScore();

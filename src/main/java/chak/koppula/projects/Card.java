@@ -14,11 +14,6 @@ public class Card {
         this.rank = rank;
     }
 
-    //returns cards suit
-    public int getSuit() {
-        return this.suit;
-    }
-
     //returns cards rank
     public int getRank() {
         return this.rank;

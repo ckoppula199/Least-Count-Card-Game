@@ -10,7 +10,7 @@ public class Computer extends Player {
         computer = true;
     }
 
-    //checks to see if top card is low and if sodraws top card instead of from draw pile
+    //checks to see if top card is low and if so draws top card instead of from draw pile
     private Card compDraw(Card top, LeastCount lc) {
         if(top.getCardValue(lc) < 5) {
             int index = lc.discardPile.getCards().indexOf(top);
@@ -43,11 +43,7 @@ public class Computer extends Player {
         } else if (score(lc) < 12) {
             num = random.nextInt(11);
             return num % 2 == 0;
-        } else if (score(lc) < 10) {
-            return true;
-        } else {
-            return false;
-        }
+        } else return score(lc) < 10;
     }
 
     /*
