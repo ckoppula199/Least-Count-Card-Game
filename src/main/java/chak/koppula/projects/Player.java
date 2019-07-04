@@ -170,4 +170,6 @@ public abstract class Player {
     public void display() {
         hand.display();
     }
+
+    abstract public void discardMultiple(ArrayList<Card> cards, Boolean matched, int numOfCards, LeastCount lc);
 }
