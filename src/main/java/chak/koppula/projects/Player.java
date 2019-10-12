@@ -171,5 +171,5 @@ public abstract class Player {
         hand.display();
     }
 
-    abstract public void discardMultiple(ArrayList<Card> cards, Boolean matched, int numOfCards, LeastCount lc);
+    public abstract void discardMultiple(ArrayList<Card> cards, Boolean matched, int numOfCards, LeastCount lc);
 }
